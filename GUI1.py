@@ -8,7 +8,11 @@ from PyQt5.QtCore import QCoreApplication
 class Example(QWidget):
     
     def __init__(self):
-        super().__init__()
+        
+        if sys.version_info[0] < 3: #Need to detect Python version
+            super(Example,self).__init__()
+        else:
+            super().__init__()
         
         self.initUI()
         
